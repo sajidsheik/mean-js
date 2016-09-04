@@ -1,6 +1,6 @@
 {
-  "name": "meanjs",
-  "description": "Fullstack JavaScript with MongoDB, Express, AngularJS, and Node.js.",
+  "name": "code-snippets",
+  "description": "a way to say hello to the world",
   "homepage": "http://meanjs.org/",
   "license": "MIT",
   "dependencies": {
