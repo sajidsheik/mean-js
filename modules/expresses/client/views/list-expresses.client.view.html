@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Expresses</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="express in vm.expresses"
+       ui-sref="expresses.view({ expressId: express._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="express.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="express.user" ng-bind="express.user.displayName"></span>
+        <span ng-if="!express.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="express.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.expresses.$resolved && !vm.expresses.length">
+    No Expresses yet, why don't you <a ui-sref="expresses.create">create one</a>?
+  </div>
+</section>

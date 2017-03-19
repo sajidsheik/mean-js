@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Nodes</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="node in vm.nodes"
+       ui-sref="nodes.view({ nodeId: node._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="node.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="node.user" ng-bind="node.user.displayName"></span>
+        <span ng-if="!node.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="node.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.nodes.$resolved && !vm.nodes.length">
+    No Nodes yet, why don't you <a ui-sref="nodes.create">create one</a>?
+  </div>
+</section>

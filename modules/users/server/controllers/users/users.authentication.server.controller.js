@@ -53,6 +53,7 @@ exports.signup = function (req, res) {
  * Signin after passport authentication
  */
 exports.signin = function (req, res, next) {
+  console.log("hi");
   passport.authenticate('local', function (err, user, info) {
     if (err || !user) {
       res.status(400).send(info);
@@ -116,7 +117,7 @@ exports.oauthCallback = function (strategy) {
           return res.redirect('/authentication/signin');
         }
 
-        return res.redirect(info || sessionRedirectURL || '/');
+        return res.redirect(typeof sessionRedirectURL == 'string' ? sessionRedirectURL : sessionRedirectURL || '/');
       });
     })(req, res, next);
   };

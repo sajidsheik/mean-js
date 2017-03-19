@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Angularjs</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="angularj in vm.angularjs"
+       ui-sref="angularjs.view({ angularjId: angularj._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="angularj.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="angularj.user" ng-bind="angularj.user.displayName"></span>
+        <span ng-if="!angularj.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="angularj.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.angularjs.$resolved && !vm.angularjs.length">
+    No Angularjs yet, why don't you <a ui-sref="angularjs.create">create one</a>?
+  </div>
+</section>

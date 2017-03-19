@@ -21,6 +21,7 @@ module.exports = function () {
         return done(err);
       }
       if (!user || !user.authenticate(password)) {
+        console.log("hi");
         return done(null, false, {
           message: 'Invalid username or password'
         });
